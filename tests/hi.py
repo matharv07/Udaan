@@ -1,8 +1,16 @@
 import cv2
 
-shot = cv2.imread("/home/atharv/Pictures/poster1.png", cv2.IMREAD_COLOR)
-blue, green, red = cv2.split(shot)
-cv2.imshow("shot", shot)
-print(shot.shape)
-cv2.waitKey(0)
+cap = cv2.VideoCapture(0)
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to grab frame")
+        break
+    cv2.imshow('Webcam Feed', frame) # Display the frame
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+cap.release()
 cv2.destroyAllWindows()
