@@ -1,5 +1,3 @@
-from traceback import print_tb
-
 import cv2
 import numpy as np
 
@@ -13,41 +11,46 @@ while True:
         print("Failed to grab frame")
         break
     frameHSV = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lowRed = np.array([0, 150, 140])
+    lowRed = np.array([0, 100, 100])
     highRed = np.array([10, 220, 255])
-    #frame = cv2.rectangle(frame, start, end, color, thickness)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     r, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)
     detect = cv2.bitwise_and(frameHSV, frameHSV, mask = thresh)
-    #detect = cv2.blur(detect, (5,5))
-    #mask = cv2.inRange(detect, lowRed, highRed)
-    mask = cv2.inRange(frameHSV, lowRed, highRed)
+    mask = cv2.inRange(detect, lowRed, highRed)
+    mask = cv2.medianBlur(mask,5)
     canny = cv2.Canny(gray, 150, 175)
     res = cv2.bitwise_and(frame, frame, mask = mask)
     contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-    start, end, check = [480, 640], [0, 0], False
-    del_arr = []
-    for contour in contours:
-        check = True
-        if contour[0][0][0] < start[0]:
-            start[0] = contour[0][0][0]
-        if contour[0][0][1] < start[1]:
-            start[1] = contour[0][0][1]
-        if contour[0][0][0] > end[0]:
-            end[0] = contour[0][0][0]
-        if contour[0][0][1] > end[1]:
-            end[1] = contour[0][0][1]
-    if not check:
-        print(start, end)
-        s = (start[0], start[1])
-        e = (end[0], end[1])
-        c = (100, 200, 0)
-        t = 4
-        frame = cv2.rectangle(frame, s, e, c, t)
+    result = frame.copy()
+    contour = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contour = contour[0] if len(contour) == 2 else contour[1]
+    x, y, w, h, area = 0, 0, 0, 0, 0
+    for cntr in contour:
+        a = cv2.contourArea(cntr)
+        if a > area:
+            area = a
+            x, y, w, h = cv2.boundingRect(cntr)
+    cv2.rectangle(result, (x, y), (x + w, y + h), (0, 0, 255), 2)
+    print(area)
+    str = ""
+    if x + w/2 > 330:
+        str += "left, "
+    elif x + w/2 < 310:
+        str += "right, "
     else:
-        print(check)
-        frame = cv2.drawContours(frame, contours, -1, [100, 200, 0], 4)
-    print("frame color: ", frame[240, 320], "hsv color: ", frameHSV[240,320])
+        str += "horz ok, "
+    if y + h/2 > 250:
+        str += "down"
+    elif y + h/2 < 230:
+        str += "up"
+    else:
+        str += "vert ok"
+    print(str)
+    factor = (62752.714285714 - 33949.357142857)/6.0
+    a = (62752.714285714 - area)/factor + 25
+    print(a)
+    cv2.imshow("bounding_box", result)
+    #print("frame color: ", frame[240, 320], "hsv color: ", frameHSV[240,320])
     cv2.imshow('HSV Feed', frameHSV)
     cv2.imshow('Detected Feed', mask)
     cv2.imshow('Bitwise Feed', res)
@@ -58,3 +61,7 @@ while True:
         break
 cap.release()
 cv2.destroyAllWindows()
+
+"""
+I'll add comments later 
+"""

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="hi">
-      <change afterPath="$PROJECT_DIR$/tests/gem.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="xd">
+      <change afterPath="$PROJECT_DIR$/tests/dev.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gem2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hi.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gem.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +49,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.dev.executor": "Run",
     "Python.gem.executor": "Run",
+    "Python.gem2.executor": "Run",
     "Python.hello.executor": "Run",
     "Python.hi.executor": "Run",
     "Python.markers.executor": "Run",
@@ -134,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752608502121</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="xd">
+      <option name="closed" value="true" />
+      <created>1754417740412</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754417740412</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +159,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="added a few files" />
     <MESSAGE value="hi" />
-    <option name="LAST_COMMIT_MESSAGE" value="hi" />
+    <MESSAGE value="xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="xd" />
   </component>
 </project>

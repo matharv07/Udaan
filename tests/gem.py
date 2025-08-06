@@ -1,78 +1,69 @@
-import cv2
+from __future__ import print_function
+import cv2 as cv
 import numpy as np
+import argparse
+import random as rng
 
-def find_common_contours(contours1, contours2, image_shape):
-    """
-    Finds the common contours between two contour lists by checking for intersection.
+rng.seed(12345)
 
-    Args:
-        contours1 (list): The first list of contours.
-        contours2 (list): The second list of contours.
-        image_shape (tuple): The shape of the original image (height, width).
 
-    Returns:
-        list: A list of contours representing the common lines.
-    """
-    # Create two blank masks to draw the contours on
-    # The masks should be single-channel (grayscale)
-    mask1 = np.zeros(image_shape, dtype=np.uint8)
-    mask2 = np.zeros(image_shape, dtype=np.uint8)
+def thresh_callback(val):
+    threshold = val
 
-    # Draw and fill the first set of contours on mask1 in white (255)
-    # -1 indicates to draw all contours, cv2.FILLED fills the contours
-    cv2.drawContours(mask1, contours1, -1, 255, thickness=cv2.FILLED)
+    # Detect edges using Canny
+    canny_output = cv.Canny(src_gray, threshold, threshold * 2)
 
-    # Draw and fill the second set of contours on mask2 in white (255)
-    cv2.drawContours(mask2, contours2, -1, 255, thickness=cv2.FILLED)
+    # Find contours
+    contours, _ = cv.findContours(canny_output, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
-    # Find the intersection using a bitwise AND operation
-    # This will result in white pixels only where both masks had white pixels
-    intersection_mask = cv2.bitwise_and(mask1, mask2)
+    # Find the convex hull object for each contour
+    hull_list = []
+    for i in range(len(contours)):
+        hull = cv.convexHull(contours[i])
+        hull_list.append(hull)
 
-    # Find the contours on the intersection mask
-    # RETR_EXTERNAL retrieves only the extreme outer contours
-    # CHAIN_APPROX_SIMPLE compresses horizontal, vertical, and diagonal segments
-    common_contours, _ = cv2.findContours(intersection_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # Draw contours + hull results
+    drawing = np.zeros((canny_output.shape[0], canny_output.shape[1], 3), dtype=np.uint8)
+    for i in range(len(contours)):
+        color = (rng.randint(0, 256), rng.randint(0, 256), rng.randint(0, 256))
+        cv.drawContours(drawing, contours, i, color)
+        cv.drawContours(drawing, hull_list, i, color)
 
-    return common_contours
+    # Show in a window
+    cv.imshow('Contours', drawing)
 
-# --- Example Usage ---
 
-if __name__ == "__main__":
-    # 1. Create some dummy contours for demonstration
-    #    In a real application, you would get these from findContours() on two different images
-    image_width, image_height = 500, 500
-    # Image shape for mask creation (height, width)
-    image_shape = (image_height, image_width)
+# Load source image
+parser = argparse.ArgumentParser(description='Code for Convex Hull tutorial.')
+parser.add_argument('--input', help='Path to input image.', default='stuff.jpg')
+args = parser.parse_args()
+cap = cv.VideoCapture(-1)
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
+while True:
+    ret, src = cap.read()
+    if not ret:
+        print("Failed to grab frame")
+        break
+    if src is None:
+        print('Could not open or find the image:', args.input)
+        exit(0)
 
-    # Contour List 1: A square and a circle
-    # Contours are typically lists of numpy arrays of points
-    contour_list1 = [
-        np.array([[100, 100], [200, 100], [200, 200], [100, 200]], dtype=np.int32).reshape((-1, 1, 2)), # A square
-        cv2.ellipse2Poly((300, 300), (50, 50), 0, 0, 360, 10).reshape((-1, 1, 2))         # A circle
-    ]
+    # Convert image to gray and blur it
+    src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
+    src_gray = cv.blur(src_gray, (3, 3))
 
-    # Contour List 2: A larger square that overlaps with the first, and the same circle
-    contour_list2 = [
-        np.array([[150, 150], [250, 150], [250, 250], [150, 250]], dtype=np.int32).reshape((-1, 1, 2)), # An overlapping square
-        cv2.ellipse2Poly((300, 300), (50, 50), 0, 0, 360, 10).reshape((-1, 1, 2))         # The same circle
-    ]
+    # Create Window
+    source_window = 'Source'
+    cv.namedWindow(source_window)
+    cv.imshow(source_window, src)
+    max_thresh = 255
+    thresh = 100  # initial threshold
+    cv.createTrackbar('Canny thresh:', source_window, thresh, max_thresh, thresh_callback)
+    thresh_callback(thresh)
 
-    # 2. Find the common contours
-    print("Finding common contours...")
-    common_contours = find_common_contours(contour_list1, contour_list2, image_shape)
-    print(f"Found {len(common_contours)} common contours.")
-
-    # 3. Display the results
-    #    Create a blank image to draw the common contours on
-    #    It should be a 3-channel (BGR) image for color drawing
-    output_image = np.zeros((image_height, image_width, 3), dtype=np.uint8)
-
-    # Draw the common contours in a distinct color (e.g., green) with a thickness of 2
-    cv2.drawContours(output_image, common_contours, -1, (0, 255, 0), 2)
-
-    # Display the image
-    cv2.imshow("Common Contours", output_image)
-    print("Displaying common contours. Press any key to close the window.")
-    cv2.waitKey(0) # Waits indefinitely for a key press
-    cv2.destroyAllWindows() # Closes all OpenCV windows
+    if cv.waitKey(1) & 0xFF == ord('q'):
+        break
+cap.release()
+cv.destroyAllWindows()
