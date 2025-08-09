@@ -62,6 +62,4 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
-"""
-I'll add comments later 
-"""
+""" I'll add comments later """
