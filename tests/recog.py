@@ -34,7 +34,7 @@ with handMP.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) as 
         image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         detect = hands.process(image)
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-        fingers = 0
+        fingers = {'8' : False, '12' : False, '16' : False, '20' : False}
         if detect.multi_hand_landmarks:
             for hand_lms in detect.multi_hand_landmarks:
                 draw.draw_landmarks(image, hand_lms, handMP.HAND_CONNECTIONS, landmark_drawing_spec=mp.solutions.drawing_utils.DrawingSpec(color=(255, 0, 255), thickness=4, circle_radius=2), connection_drawing_spec=mp.solutions.drawing_utils.DrawingSpec(color=(20, 180, 90), thickness=2, circle_radius=2))
