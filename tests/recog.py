@@ -6,6 +6,7 @@ def checkOrientation(map):
     isFingerRaised = {'8' : False, '12' : False, '16' : False, '20' : False}
     for tip in tipIds:
         yfingerPos = [map.landmark[tip].y, map.landmark[tip - 1].y, map.landmark[tip - 2].y, map.landmark[tip - 3].y]
+        print(yfingerPos)
         check = True
         for i in (0, 2):
             if yfingerPos[i] > yfingerPos[i + 1]:
