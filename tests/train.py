@@ -1,0 +1,47 @@
+import cv2
+import numpy as np
+
+frame = cv2.imread('/home/atharv/PycharmProjects/Udaan/tests/gazeboobj.png')
+frameHSV = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+lowRed = np.array([0, 130, 130])
+highRed = np.array([60, 255, 255])
+gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+hsv_image = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+lower_black = np.array([0, 0, 0])
+upper_black = np.array([180, 255, 100])
+maskOR = cv2.inRange(hsv_image, lower_black, upper_black)
+checker = frame.copy()
+checker[maskOR > 0] = (40, 60, 180)
+r, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)
+detect = cv2.bitwise_and(frameHSV, frameHSV, mask=thresh)
+cone = cv2.bitwise_and(frame, frame, mask=thresh)
+mask = cv2.inRange(detect, lowRed, highRed)
+mask = cv2.medianBlur(mask, 5)
+canny = cv2.Canny(gray, 150, 175)
+res = cv2.bitwise_and(frame, frame, mask=mask)
+contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+contour = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+result = frame.copy()
+contour = contour[0] if len(contour) == 2 else contour[1]
+x, y, w, h, area = 0, 0, 0, 0, 0
+for cntr in contour:
+    a = cv2.contourArea(cntr)
+    print('hi')
+    if a > area:
+        area = a
+        x, y, w, h = cv2.boundingRect(cntr)
+    xl, yl, wl, hl = cv2.boundingRect(cntr)
+    cv2.rectangle(result, (xl, yl), (xl + wl, yl + hl), (255, 0, 0), 2)
+cv2.rectangle(result, (x, y), (x + w, y + h), (0, 0, 255), 2)
+print(area)
+# print("frame color: ", frame[240, 320], "hsv color: ", frameHSV[240,320])
+cv2.imshow('checker', checker)
+cv2.imshow('Feed', frame)
+cv2.imshow('Binary image', thresh)
+cv2.imshow('bounds', result)
+cv2.imshow('detect', detect)
+cv2.imshow('fore', cone)
+cv2.imshow('Bitwise Feed', res)
+cv2.imshow('canny', canny)
+cv2.waitKey(0)
+cv2.destroyAllWindows()

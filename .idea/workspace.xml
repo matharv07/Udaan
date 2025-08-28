@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="push">
+      <change afterPath="$PROJECT_DIR$/tests/dataviz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/gazeboobj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/genphoto.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/robocam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/palm_recog.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/palm_recog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +51,7 @@
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.datagen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dataviz.executor&quot;: &quot;Run&quot;,
     &quot;Python.dev.executor&quot;: &quot;Run&quot;,
     &quot;Python.gem.executor&quot;: &quot;Run&quot;,
     &quot;Python.gem2.executor&quot;: &quot;Run&quot;,
@@ -56,19 +61,26 @@
     &quot;Python.meth2.executor&quot;: &quot;Run&quot;,
     &quot;Python.palm_recog.executor&quot;: &quot;Run&quot;,
     &quot;Python.recog.executor&quot;: &quot;Run&quot;,
+    &quot;Python.robocam.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.test2.executor&quot;: &quot;Run&quot;,
     &quot;Python.test3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.train.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_directory_selection&quot;: &quot;/home/atharv/PycharmProjects/Udaan/tests&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/atharv/ros2_w1/src/test1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/atharv/PycharmProjects/Udaan/tests&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udaan" />
@@ -185,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755796597675</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="push">
+      <option name="closed" value="true" />
+      <created>1755889823777</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1755889823777</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
