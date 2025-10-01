@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="push">
-      <change afterPath="$PROJECT_DIR$/tests/dataviz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/gazeboobj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/genphoto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/robocam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d9fa9deec7cb-d902c0275401-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-252.23892.515" />
+        <option value="bundled-python-sdk-b030e9c4a83c-d902c0275401-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-252.26199.168" />
       </set>
     </attachedChunks>
   </component>
@@ -205,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755889823777</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="push">
+      <option name="closed" value="true" />
+      <created>1756401846209</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1756401846209</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
