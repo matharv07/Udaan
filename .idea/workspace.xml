@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="push" />
+    <list default="true" id="099cc670-16bd-45de-a05f-03ffd62f30df" name="Changes" comment="Hello OMEN">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/balcony-rec.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/balcony-rec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +47,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.balcony-rec.executor&quot;: &quot;Run&quot;,
     &quot;Python.datagen.executor&quot;: &quot;Run&quot;,
     &quot;Python.dataviz.executor&quot;: &quot;Run&quot;,
     &quot;Python.dev.executor&quot;: &quot;Run&quot;,
@@ -66,7 +71,12 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_directory_selection&quot;: &quot;/home/atharv/PycharmProjects/Udaan/tests&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/atharv/PycharmProjects/Udaan/tests&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -121,6 +131,15 @@
       <option name="presentableId" value="Default" />
       <updated>1751270591895</updated>
       <workItem from="1759400888302" duration="54000" />
+      <workItem from="1759400953368" duration="326000" />
+      <workItem from="1759401374697" duration="3000" />
+      <workItem from="1759436879827" duration="61000" />
+      <workItem from="1759436974917" duration="627000" />
+      <workItem from="1759481114248" duration="48000" />
+      <workItem from="1760540815360" duration="53000" />
+      <workItem from="1760553410324" duration="863000" />
+      <workItem from="1761249786360" duration="858000" />
+      <workItem from="1761918218314" duration="465000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -210,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756401846209</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Hello OMEN">
+      <option name="closed" value="true" />
+      <created>1759401114028</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759401114028</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +260,13 @@
     <MESSAGE value="hi" />
     <MESSAGE value="xd" />
     <MESSAGE value="push" />
-    <option name="LAST_COMMIT_MESSAGE" value="push" />
+    <MESSAGE value="Hello OMEN" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hello OMEN" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Udaan$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1760554272719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Udaan$meth2.coverage" NAME="meth2 Coverage Results" MODIFIED="1759481134705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Udaan$dataviz.coverage" NAME="dataviz Coverage Results" MODIFIED="1759481144520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Udaan$balcony_rec.coverage" NAME="balcony-rec Coverage Results" MODIFIED="1761918644505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
   </component>
 </project>
